@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>World Timezone Map — Support</title>
+<style>
+  :root { --bg:#0b1220; --panel:#111a2e; --text:#e2e8f0; --muted:#8b99b4; --accent:#93c5fd; --amber:#fbbf24; --line:#1c2740; color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 -apple-system,"PingFang SC","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",system-ui,sans-serif; }
+  .wrap { max-width: 720px; margin: 0 auto; padding: 48px 20px 64px; }
+  header { display:flex; align-items:center; justify-content:space-between; gap:16px; flex-wrap:wrap; margin-bottom:32px; }
+  h1 { font-size:26px; margin:0; font-weight:650; }
+  .tag { color:var(--muted); font-size:14px; margin-top:6px; }
+  .sw { display:flex; gap:4px; }
+  .sw button { background:#16203a; color:var(--muted); border:1px solid var(--line); border-radius:7px; padding:6px 12px; font-size:13px; cursor:pointer; }
+  .sw button.active { background:#1e3a5f; color:var(--accent); border-color:#3b82f6; }
+  section { background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:22px 24px; margin-bottom:18px; }
+  h2 { font-size:18px; margin:0 0 12px; color:var(--accent); }
+  p, li { color:var(--text); }
+  ul { margin:0; padding-left:0; list-style:none; }
+  details { border-top:1px solid var(--line); padding:12px 0; }
+  details:first-of-type { border-top:none; padding-top:0; }
+  summary { cursor:pointer; font-weight:600; color:var(--text); }
+  details p { color:var(--muted); margin:8px 0 0; }
+  .contact a { color:var(--amber); text-decoration:none; font-weight:600; }
+  .contact a:hover { text-decoration:underline; }
+  .attribution, footer { color:var(--muted); font-size:13px; }
+  footer { text-align:center; margin-top:32px; }
+  .dot { color:var(--amber); }
+  [hidden]{display:none!important;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div>
+      <h1 data-i18n="h1">World Timezone Map</h1>
+      <div class="tag" data-i18n="tag">Real day/night terminator · every timezone at a glance</div>
+    </div>
+    <nav class="sw" aria-label="Language">
+      <button data-setlang="en" class="active">English</button>
+      <button data-setlang="zh">中文</button>
+      <button data-setlang="ja">日本語</button>
+    </nav>
+  </header>
+
+  <section>
+    <h2 data-i18n="about">About</h2>
+    <p data-i18n="aboutBody">World Timezone Map colors 400+ IANA timezones with their live UTC offset (DST-aware) and draws the real astronomical day/night terminator. Tap a city or land for its local time.</p>
+  </section>
+
+  <section>
+    <h2 data-i18n="faq">FAQ</h2>
+    <details open><summary data-i18n="q1">Does the app collect any data?</summary><p data-i18n="a1">No. It is fully offline — no network requests, no analytics, no tracking. Nothing ever leaves your device.</p></details>
+    <details><summary data-i18n="q2">How do I change the language?</summary><p data-i18n="a2">The UI follows your system language and supports 中文 / English / 日本語. Any other system language shows English.</p></details>
+    <details><summary data-i18n="q3">Are the timezones DST-aware?</summary><p data-i18n="a3">Yes. Each timezone's color reflects its current UTC offset including daylight saving time, and refreshes automatically.</p></details>
+    <details><summary data-i18n="q4">Can I see another moment in time?</summary><p data-i18n="a4">Yes — use the timeline to travel ±24 hours or ±365 days and preview any date/time, including DST transitions.</p></details>
+    <details><summary data-i18n="q5">Which devices are supported?</summary><p data-i18n="a5">iPhone and iPad running iOS 16.0 or later.</p></details>
+    <details><summary data-i18n="q6">How do I report a bug or suggest a city?</summary><p data-i18n="a6">Email the address below.</p></details>
+  </section>
+
+  <section>
+    <h2 data-i18n="privacy">Privacy</h2>
+    <p data-i18n="privacyBody">World Timezone Map does not collect, store, or transmit any personal data. All rendering happens on-device.</p>
+  </section>
+
+  <section class="contact">
+    <h2 data-i18n="contact">Contact</h2>
+    <p><a href="mailto:vangogh168@gmail.com">vangogh168@gmail.com</a></p>
+  </section>
+
+  <p class="attribution" data-i18n="attr">Map data © OpenStreetMap contributors (ODbL).</p>
+
+  <footer>
+    <span data-i18n="copy">© 2026 Lishan Yang</span>
+    <span class="dot"> · </span>
+    <span data-i18n="version">Version 0.1.0</span>
+  </footer>
+</div>
+
+<script>
+const STR = {
+  en: {
+    h1:"World Timezone Map",
+    tag:"Real day/night terminator · every timezone at a glance",
+    about:"About", aboutBody:"World Timezone Map colors 400+ IANA timezones with their live UTC offset (DST-aware) and draws the real astronomical day/night terminator. Tap a city or land for its local time.",
+    faq:"FAQ",
+    q1:"Does the app collect any data?", a1:"No. It is fully offline — no network requests, no analytics, no tracking. Nothing ever leaves your device.",
+    q2:"How do I change the language?", a2:"The UI follows your system language and supports 中文 / English / 日本語. Any other system language shows English.",
+    q3:"Are the timezones DST-aware?", a3:"Yes. Each timezone's color reflects its current UTC offset including daylight saving time, and refreshes automatically.",
+    q4:"Can I see another moment in time?", a4:"Yes — use the timeline to travel ±24 hours or ±365 days and preview any date/time, including DST transitions.",
+    q5:"Which devices are supported?", a5:"iPhone and iPad running iOS 16.0 or later.",
+    q6:"How do I report a bug or suggest a city?", a6:"Email the address below.",
+    privacy:"Privacy", privacyBody:"World Timezone Map does not collect, store, or transmit any personal data. All rendering happens on-device.",
+    contact:"Contact",
+    attr:"Map data © OpenStreetMap contributors (ODbL).",
+    copy:"© 2026 Lishan Yang", version:"Version 0.1.0"
+  },
+  zh: {
+    h1:"世界时区地图",
+    tag:"真晨昏线 · 全球时区一眼看懂",
+    about:"关于", aboutBody:"世界时区地图把全球 400 多个 IANA 时区按实时 UTC 偏移（含夏令时）上色，并画出真实的天文晨昏线。点城市或陆地即可查看当地时间。",
+    faq:"常见问题",
+    q1:"App 会收集数据吗？", a1:"不会。完全离线——无网络请求、无统计、无追踪，任何数据都不会离开你的设备。",
+    q2:"怎么切换语言？", a2:"界面自动跟随系统语言，支持中文 / English / 日本語；其他系统语言默认英文。",
+    q3:"时区含夏令时吗？", a3:"含。每个时区的颜色反映当前 UTC 偏移（含夏令时），并自动刷新。",
+    q4:"能看其他时刻吗？", a4:"能。用时间轴在 ±24 小时 / ±365 天内任意跳转，预览任何日期时刻（含夏令时切换）。",
+    q5:"支持哪些设备？", a5:"iOS 16.0 或更高版本的 iPhone 和 iPad。",
+    q6:"怎么反馈 bug 或建议城市？", a6:"发邮件到下方地址。",
+    privacy:"隐私", privacyBody:"世界时区地图不收集、不存储、不传输任何个人数据，全部渲染在设备本地完成。",
+    contact:"联系",
+    attr:"地图数据 © OpenStreetMap contributors（ODbL）。",
+    copy:"© 2026 Lishan Yang", version:"版本 0.1.0"
+  },
+  ja: {
+    h1:"世界タイムゾーンマップ",
+    tag:"実際の昼夜境界 · 世界の時刻を一目で",
+    about:"このアプリについて", aboutBody:"世界タイムゾーンマップは、世界 400 以上の IANA タイムゾーンをリアルタイムの UTC オフセット（夏時間込み）で色分けし、実際の天文計算による昼夜境界線を描きます。都市や陸地をタップすると現地時刻を確認できます。",
+    faq:"よくある質問",
+    q1:"データは収集されますか？", a1:"されません。完全オフラインで、通信・解析・トラッキングは一切ありません。端末の外に送信されるデータはありません。",
+    q2:"言語はどう切り替えますか？", a2:"UI はシステム言語に自動追従し、中文 / English / 日本語に対応。それ以外の言語では英語表示になります。",
+    q3:"夏時間に対応していますか？", a3:"対応しています。各タイムゾーンの色は現在の UTC オフセット（夏時間込み）を反映し、自動更新されます。",
+    q4:"別の時刻を見られますか？", a4:"見られます。タイムラインで ±24 時間 / ±365 日を移動し、任意の日時（夏時間の切り替え含む）をプレビューできます。",
+    q5:"対応デバイスは？", a5:"iOS 16.0 以降の iPhone と iPad。",
+    q6:"バグ報告や都市の提案は？", a6:"下記メールまでお願いします。",
+    privacy:"プライバシー", privacyBody:"世界タイムゾーンマップは個人データを収集・保存・送信しません。すべて端末上で描画されます。",
+    contact:"お問い合わせ",
+    attr:"地図データ © OpenStreetMap contributors（ODbL）。",
+    copy:"© 2026 Lishan Yang", version:"バージョン 0.1.0"
+  }
+};
+const setLang = (l) => {
+  document.documentElement.lang = l;
+  document.querySelectorAll("[data-i18n]").forEach(el => { el.textContent = STR[l][el.dataset.i18n]; });
+  document.querySelectorAll(".sw button").forEach(b => b.classList.toggle("active", b.dataset.setlang === l));
+  try { localStorage.setItem("wtm-lang", l); } catch (e) {}
+};
+const initial = (() => {
+  const q = new URLSearchParams(location.search).get("lang");
+  if (q === "zh" || q === "ja" || q === "en") return q;
+  const s = (navigator.language || "en").toLowerCase();
+  if (s.startsWith("zh")) return "zh";
+  if (s.startsWith("ja")) return "ja";
+  return "en";
+})();
+document.querySelectorAll(".sw button").forEach(b => b.addEventListener("click", () => setLang(b.dataset.setlang)));
+setLang(initial);
+</script>
+</body>
+</html>
